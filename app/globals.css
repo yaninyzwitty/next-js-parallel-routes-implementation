@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+ 
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+ 
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+ 
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+ 
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+ 
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+ 
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+ 
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+ 
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+ 
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+ 
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+ 
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+  font-family: "Arial";
+  display: grid;
+  gap: 2rem;
+  padding: 1.5rem;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+label,
+button {
+  font-size: 1.2rem;
+  color: #fff;
+  padding: 0.5em 0.9em;
+  cursor: pointer;
+  border: none;
+}
+[type="file"] {
+  display: none;
+}
+[class*="btn"] {
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.btn-grey {
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #888;
+}
+.btn-green {
+  background-color: #63dd47;
+}
+
+p {
+  display: block;
+  width: 60%;
+  font-family: monospace;
+  font-size: 1.2rem;
+  background-color: #000;
+  color: #f00;
+  margin: auto;
+  text-overflow: ellipsis;
+}
+
+code {
+  display: grid;
+  gap: 4px;
+  padding: 1rem;
+  background-color: #000;
+}
+
+.output-item {
+  display: flex;
+  gap: 0.4rem;
+  font-family: monospace;
+  font-size: 14px;
+  color: #fff;
+}
+.output-item > *:first-child {
+  font-weight: 800;
+  color: #6aab17;
+}
