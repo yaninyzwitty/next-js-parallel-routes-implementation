@@ -1,48 +1,20 @@
-"use client";
-import {useState} from "react";
-import axios from "axios";
+import Link from "next/link";
 
-function App() {
-  const [file, setFile] = useState<File | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [res, setRes] = useState({});
-
-  const handleSelectFile = (e: any) => setFile(e.target.files[0]);
-  const handleUpload = async () => {
-    try {
-      setLoading(true);
-      const data = new FormData();
-      data.append("my_file", file!);
-      const res = await axios.post("http://localhost:3001/upload", data);
-      setRes(res.data);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+function Home() {
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <div className="App">
-      <label htmlFor="file" className="btn-grey">
-        {" "}
-        select file
-      </label>
-      {file && <center> {file.name}</center>}
-      <input
-        id="file"
-        type="file"
-        onChange={handleSelectFile}
-        multiple={false}
-      />
-
-      {file && (
-        <>
-          <button onClick={handleUpload} className="btn-green">
-            {loading ? "uploading..." : "upload to cloudinary"}
-          </button>
-        </>
-      )}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 max-w-6xl mx-auto">
+      {arr.map((item, index) => (
+        <Link
+          href={`/photos/${item}`}
+          className="px-6 py-5 bg-gray-200 flex items-center flex-col justify-center"
+          key={index}
+        >
+          {item.toString()}
+        </Link>
+      ))}
     </div>
   );
 }
-export default App;
+
+export default Home;
